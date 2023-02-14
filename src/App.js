@@ -4,9 +4,12 @@ import {useSelector} from 'react-redux'
 import ListComponent from './ListComponent'
 import ProductEdit from './EditProductName'
 import AddProduct from './AddProduct'
+import {useTodolist} from './globalState/hook'
+import Context from './globalState/store'
 
 function App() {
-  const gList=useSelector((state)=>state)
+  const [gList]=useTodolist()
+  
 const [isShow,setIsShow] = useState(false)
 const [id,setId] = useState("")
 

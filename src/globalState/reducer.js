@@ -1,5 +1,5 @@
 
-const intstialState =[{
+export const intstialState =[{
     name:"burger",
     veg:true,
     id:"1",
@@ -15,7 +15,7 @@ const intstialState =[{
     id:"3",
     taste:"good"
   }]
-export function todoReducer(state=intstialState,action) {
+export function todoReducer(state,action) {
 
     switch(action.type){
         case "ADD" :

@@ -1,4 +1,12 @@
-import {createStore} from 'redux'
-import {todoReducer} from './reducer'
+import {React,createContext,useReducer} from 'react'
+import {todoReducer,intstialState} from './reducer'
 
- export default  createStore(todoReducer)
+ export const GlobalContext=createContext()
+
+export default function Context({children}) {
+    return (
+        <GlobalContext.Provider value={useReducer(todoReducer,intstialState)}>
+    {children}
+    </GlobalContext.Provider>
+    )
+}
