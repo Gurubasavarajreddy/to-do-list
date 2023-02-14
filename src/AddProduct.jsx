@@ -1,6 +1,6 @@
 import React , {useState} from 'react'
 import {useDispatch} from 'react-redux'
-import {addTodoList} from './globalState/action'
+import {addTodoList} from './globalState/slice'
 function AddProduct() {
 const addProduct = useDispatch()
 const [name,inserName] = useState("")

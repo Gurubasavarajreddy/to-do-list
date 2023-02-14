@@ -1,5 +1,5 @@
 
 import {configureStore} from '@reduxjs/toolkit'
-import {todoReducer} from './reducer'
+import rootreducer from './slice'
 
-export default configureStore({reducer:todoReducer})
+export default  configureStore({reducer:rootreducer})

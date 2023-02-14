@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
  import {useDispatch} from 'react-redux'
- import {editProduct} from './globalState/action'
+ import {editProduct} from './globalState/slice'
 function ProductEdit({editedProduct,id}) {
   
 const [name,inserName] = useState(editedProduct.name)
