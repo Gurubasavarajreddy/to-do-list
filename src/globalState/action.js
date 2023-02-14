@@ -1,19 +1,5 @@
-export function getTodoList(){
-    return {
-        type:"LIST"
-    }
-}
-export function addTodoList(payload){
-    return {
-        type:"ADD",
-        payload
-    }
-}
-export function editProduct(payload){
+import { createAction } from "@reduxjs/toolkit"
 
-    return {
-        type:"EDIT",
-        product:payload.product,
-       id: payload.id
-    }
-}
+export const getTodoList = createAction("LIST")
+export const addTodoList = createAction("ADD")
+export const editProduct = createAction("EDIT")

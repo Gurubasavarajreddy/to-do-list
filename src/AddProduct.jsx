@@ -1,10 +1,8 @@
 import React , {useState} from 'react'
 import {useDispatch} from 'react-redux'
 import {addTodoList} from './globalState/action'
-import {useTodolist} from './globalState/hook'
-
-function AddProduct({addProducthandler}) {
-const [state,dispatchar] = useTodolist()
+function AddProduct() {
+const addProduct = useDispatch()
 const [name,inserName] = useState("")
 const [isVeg,setVeg] = useState(false)
 const [taste,setTaste] = useState("good")
@@ -21,7 +19,7 @@ const onHandleChangetaste= (e) =>{
 }
 const onHandleSubmite=(e)=>{
     e.preventDefault()
-    dispatchar(addTodoList({name:name,veg:isVeg, id:new Date().getMilliseconds()+"",taste:taste}))
+    addProduct(addTodoList({name:name,veg:isVeg, id:new Date().getMilliseconds()+"",taste:taste}))
 
     inserName('')
     setVeg(false)

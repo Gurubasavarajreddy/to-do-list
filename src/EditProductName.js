@@ -1,14 +1,12 @@
 import React,{useState} from 'react'
  import {useDispatch} from 'react-redux'
  import {editProduct} from './globalState/action'
- import {useTodolist} from './globalState/hook'
-
 function ProductEdit({editedProduct,id}) {
   
 const [name,inserName] = useState(editedProduct.name)
 const [isVeg,setVeg] = useState(editedProduct.veg)
 const [taste,setTaste] = useState(editedProduct.taste)
-const [,editProductDisptach] = useTodolist()
+const editProductDisptach = useDispatch()
 React.useEffect(()=>{
     inserName(editedProduct.name)
     setVeg(editedProduct.veg)

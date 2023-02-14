@@ -1,4 +1,5 @@
-
+import { createReducer } from "@reduxjs/toolkit";
+import {getTodoList,addTodoList,editProduct} from './action'
 export const intstialState =[{
     name:"burger",
     veg:true,
@@ -15,25 +16,24 @@ export const intstialState =[{
     id:"3",
     taste:"good"
   }]
-export function todoReducer(state,action) {
-
-    switch(action.type){
-        case "ADD" :
-            console.log([...state,action.payload])
-           return [...state,action.payload];
-   
-        case "LIST" :
-            return state.list;
-         case "EDIT" :
-                const updatedList = state.map((p)=>{
-                    if(p.id===action.id){
-                      return {...p,...action.product}
-                    }else
-                    return p
-                  })
-                  return updatedList
-        default :
-        return state
+export  const todoReducer =  createReducer(intstialState,{
+    [getTodoList.type] : (state,action)=>{
+        return state.list;
+    },
+    [addTodoList.type] : (state,action)=>{
+        console.log('s',action)
+       return state = [...state,action.payload];
+    },
+    [editProduct.type] : (state,action)=>{
+       
+          state = state.map((p)=>{
+            if(p.id===action.payload.id){
+              return {...p,...action.payload.product}
+            }else
+            return p
+          })
+          return state
     }
-   
-}
+}) 
+
+
